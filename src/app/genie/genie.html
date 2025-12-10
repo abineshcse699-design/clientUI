@@ -1,0 +1,134 @@
+<div class="genie-container">
+  <!-- UPOV Header with Navigation -->
+  <header class="upov-header">
+    <div class="upov-header-main">
+      <div class="container-fluid">
+        <div class="upov-nav-wrapper">
+          <div class="upov-logo">
+            <a href="https://www.upov.int">UPOV</a>
+          </div>
+          <nav class="upov-nav">
+            <a href="#" class="nav-link">HOME</a>
+
+            <!-- FIND & EXPLORE Dropdown -->
+            <div class="nav-dropdown">
+              <button class="nav-link dropdown-trigger" [matMenuTriggerFor]="findExploreMenu">
+                FIND & EXPLORE
+                <mat-icon class="dropdown-icon">arrow_drop_down</mat-icon>
+              </button>
+              <mat-menu #findExploreMenu="matMenu" class="upov-menu">
+                <div class="menu-section">
+                  <h3 class="menu-heading">Databases</h3>
+                  <button mat-menu-item>UPOV Lex</button>
+                  <button mat-menu-item>PLUTO Search</button>
+                  <button mat-menu-item>GENIE</button>
+                </div>
+                <div class="menu-section">
+                  <h3 class="menu-heading">Information & Guidance</h3>
+                  <button mat-menu-item>Explanatory Notes</button>
+                  <button mat-menu-item>Information Documents</button>
+                  <button mat-menu-item>Examination Guidance</button>
+                  <button mat-menu-item class="menu-sub-item">TGP Documents</button>
+                  <button mat-menu-item class="menu-sub-item">Test Guidelines</button>
+                  <button mat-menu-item class="menu-sub-item">TG Template</button>
+                  <button mat-menu-item class="menu-sub-item">Additional Characteristics</button>
+                </div>
+                <div class="menu-section">
+                  <h3 class="menu-heading">IT Resources</h3>
+                </div>
+                <div class="menu-section">
+                  <h3 class="menu-heading">Jurisprudence</h3>
+                </div>
+              </mat-menu>
+            </div>
+
+            <!-- PLANT VARIETY PROTECTION Dropdown -->
+            <div class="nav-dropdown">
+              <button class="nav-link dropdown-trigger" [matMenuTriggerFor]="pvpMenu">
+                PLANT VARIETY PROTECTION
+                <mat-icon class="dropdown-icon">arrow_drop_down</mat-icon>
+              </button>
+              <mat-menu #pvpMenu="matMenu" class="upov-menu">
+                <div class="menu-section">
+                  <h3 class="menu-heading">Learn</h3>
+                  <button mat-menu-item>FAQs</button>
+                  <button mat-menu-item>Case Studies</button>
+                  <button mat-menu-item>Farmers</button>
+                  <button mat-menu-item>Breeders</button>
+                  <button mat-menu-item>Policy-makers</button>
+                  <button mat-menu-item>PVP Training</button>
+                  <button mat-menu-item class="menu-sub-item">UPOV PVP Certificate</button>
+                  <button mat-menu-item class="menu-sub-item">Online Learning</button>
+                  <button mat-menu-item>PVP Statistics</button>
+                </div>
+              </mat-menu>
+            </div>
+
+            <!-- FILE & MANAGE Dropdown -->
+            <div class="nav-dropdown">
+              <button class="nav-link dropdown-trigger" [matMenuTriggerFor]="fileManageMenu">
+                FILE & MANAGE
+                <mat-icon class="dropdown-icon">arrow_drop_down</mat-icon>
+              </button>
+              <mat-menu #fileManageMenu="matMenu" class="upov-menu">
+                <div class="menu-section">
+                  <button mat-menu-item>UPOV PRISMA</button>
+                  <button mat-menu-item>UPOV e-PVP Exchange</button>
+                  <button mat-menu-item>UPOV e-PVP Administration</button>
+                  <button mat-menu-item>PLUTO Contribute</button>
+                </div>
+              </mat-menu>
+            </div>
+
+            <!-- ABOUT UPOV Dropdown -->
+            <div class="nav-dropdown">
+              <button class="nav-link dropdown-trigger" [matMenuTriggerFor]="aboutMenu">
+                ABOUT UPOV
+                <mat-icon class="dropdown-icon">arrow_drop_down</mat-icon>
+              </button>
+              <mat-menu #aboutMenu="matMenu" class="upov-menu">
+                <div class="menu-section">
+                  <button mat-menu-item>Overview</button>
+                  <button mat-menu-item>News</button>
+                  <button mat-menu-item>Newsletter</button>
+                  <button mat-menu-item>Press Releases</button>
+                  <button mat-menu-item>Members</button>
+                  <button mat-menu-item>Observers</button>
+                  <button mat-menu-item>Meetings & Events</button>
+                  <button mat-menu-item>Publications</button>
+                  <button mat-menu-item>Job opportunities</button>
+                </div>
+              </mat-menu>
+            </div>
+
+            <button class="search-icon-btn">
+              <mat-icon>search</mat-icon>
+            </button>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="upov-breadcrumb">
+    <div class="container-fluid">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="#">Find & Explore</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="#">Databases</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="#">GENIE</a>
+          </li>
+          <li class="breadcrumb-item active">GENIE Database</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+
+</div>

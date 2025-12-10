@@ -1,0 +1,855 @@
+
+
+
+
+
+
+
+//Header
+
+
+
+
+/* UPOV Brand Theme - Matching Design System */
+
+:host {
+  display: block;
+}
+
+.genie-container {
+  min-height: 100vh;
+  background: #e8f3ed;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* UPOV Header */
+.upov-header {
+  background: #2d5b52;
+
+  .upov-header-main {
+    padding: 0;
+  }
+
+  .container-fluid {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .upov-nav-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+
+  .upov-logo {
+    a {
+      color: white;
+      font-size: 1.75rem;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  .upov-nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    .nav-dropdown {
+      position: relative;
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color 0.3s;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem 0;
+      font-family: inherit;
+
+      &:hover {
+        color: #d4e834;
+      }
+
+      &.dropdown-trigger {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+
+        .dropdown-icon {
+          font-size: 1.25rem;
+          width: 1.25rem;
+          height: 1.25rem;
+          transition: transform 0.3s;
+        }
+      }
+    }
+
+    .search-icon-btn {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      padding: 0.5rem;
+      display: flex;
+      align-items: center;
+
+      mat-icon {
+        font-size: 1.5rem;
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+
+      &:hover {
+        color: #d4e834;
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .upov-nav {
+      gap: 1rem;
+
+      .nav-link {
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .upov-nav {
+      .nav-link {
+        display: none;
+      }
+    }
+  }
+}
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/* GLOBAL: Apply identical UPOV font + color to ALL text */
+.species-wrapper,
+.species-wrapper * {
+    font-family: 'Roboto', sans-serif !important;
+    color: #1A3B35 !important;
+    letter-spacing: 0.2px;
+}
+
+/* WRAPPER */
+.species-wrapper {
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+/* BACK LINK */
+.back-link {
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* MAIN CARD */
+.details-box {
+    background: #fff;
+    padding: 32px;
+    border-radius: 12px;
+    display: flex;
+    gap: 42px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+}
+
+/* LEFT SIDE */
+.left-section {
+    flex: 1.6;
+}
+
+.two-col {
+    display: flex;
+    gap: 60px;
+}
+
+.col {
+    flex: 1;
+}
+
+.label {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.big-value {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.value {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.link {
+    color: #1A7F38 !important; /* UPOV green for links */
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+/* DIVIDER */
+.details-box hr {
+    border: none;
+    border-bottom: 1px solid #d4d4d4;
+    margin: 18px 0;
+}
+
+/* LESS DETAILS BUTTON */
+.toggle-btn {
+    background: none;
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    color: #1A7F38 !important;
+    cursor: pointer;
+}
+
+/* RIGHT SIDE IMAGES */
+.right-section {
+    width: 290px;
+    text-align: center;
+}
+
+.main-img {
+    width: 100%;
+    height: 210px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.16);
+}
+
+/* THUMBNAILS */
+.thumb-row {
+    display: flex;
+    margin-top: 12px;
+    gap: 12px;
+}
+
+.thumb-row img {
+    width: 48%;
+    height: 90px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.16);
+}
+
+
+
+
+
+.main3{
+
+  // height: 100px;
+
+    width: 100%;
+    margin: 30px auto;
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+    // flex-direction: column;
+
+}
+
+
+.card{
+    background: #fff;
+    border-radius: 10px;
+    padding: 22px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    box-shadow: 0px 3px 8px rgba(0,0,0,0.09);
+    width: 95%;
+}
+
+.left h3{
+    margin: 0;
+    font-size: 20px;
+}
+
+.tag{
+    display: inline-block;
+    background: #e4f5e9;
+    color: #287a47;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin: 8px 0 12px 0;
+}
+
+.card-details{
+    display: flex;
+    // gap: 40px;
+    margin-bottom: 8px;
+    // width: 100%;
+    flex-direction: column;
+    font-size: 15px;
+}
+
+.details p{
+    margin: 0;
+    font-size: 14px;
+        color: #444;
+}
+
+.-details i{
+    margin-right: 6px;
+    color: #777;
+}
+
+
+.flag img{
+  margin-bottom: 100px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e0e0e0;
+
+}
+
+
+
+@media(max-width:600px){
+    .details{
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+.details p{
+    margin: 0;
+        font-size: 14px;
+        color: #444;
+}
+
+.details i{
+    margin-right: 6px;
+    color: #777;
+}
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    padding: 20px 40px;
+    color: #2d2d2d;
+}
+
+.tabs {
+    display: flex;
+    gap: 40px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    height: 100px;
+}
+
+// .tab
+//  {
+//     display: flex;
+//     align-items: center;
+//     gap: 8px;
+//     padding-bottom: 8px;
+//     cursor: pointer;
+//     color: #666;
+
+// }
+
+.tab.active {
+    border-bottom: 3px solid #2a7b78;
+    color: #2a7b78;
+    font-weight: bold;
+}
+
+.tab .info {
+    background: #e5e5e5;
+    border-radius: 50%;
+    padding: 2px 7px;
+    font-size: 12px;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #dcdcdc;
+    margin: 0;
+}
+
+.content {
+    margin-top: 25px;
+}
+
+h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+
+.label {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 7px;
+    color: #555;
+}
+
+
+.dropdown {
+    position: relative;
+    width: 380px;
+}
+
+.dropdown input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #bfbfbf;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.dropdown .arrow {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    font-size: 20px;
+    color: #666;
+    pointer-events: none;
+}
+
+.note {
+        margin-top: 15px;
+        font-size: 14px;
+        color: #444;
+}
+
+.drop{
+  display: flex;
+  justify-content:space-between;
+  gap:50px
+}
+
+// .side{
+//   display: flex;
+//   gap:40px;
+// font-size: 11px;
+//   width: 100%;
+// }
+
+
+///
+
+/* --------------- Roboto font (only include once in page head) --------------- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap');
+
+/* ---------- Strict UPOV typography overrides (only typography & color) ---------- */
+
+/* apply Roboto everywhere in this UI area without touching layout */
+.species-wrapper,
+.main3,
+.details-box,
+.details-box *,
+.card,
+.card *,
+.tabs,
+.tabs *,
+.dropdown,
+.dropdown * {
+  font-family: "Roboto", Arial, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* color tokens */
+:root{
+  --upov-dark: #1A3B35;    /* primary dark green used for headings/titles */
+  --upov-text: #333333;    /* general body text */
+  --upov-muted: #6b6b6b;   /* secondary muted text */
+  --upov-link: #1A7F38;    /* link / tag green */
+}
+
+/* Headings & big values (exact UPOV weight + color) */
+.big-value,
+.species-wrapper h1,
+.species-wrapper h2,
+.species-wrapper h3,
+.card .left h3,
+.section-title {
+  color: var(--upov-dark) !important;
+  font-weight: 700 !important;    /* bold headings */
+  letter-spacing: 0.2px !important;
+}
+
+/* Labels (e.g. "Crop type", "Select the authority") */
+.label,
+.details-box .label,
+.tabs .tab,
+.tabs .tab * {
+  color: var(--upov-text) !important;
+  font-weight: 500 !important;    /* semi-bold label */
+  letter-spacing: 0.2px;
+}
+
+/* Values (e.g. "Vegetable", "Brassicaceae", card contact lines) */
+/* Slightly stronger than normal body text to match screenshot */
+.value,
+.details p,
+.card-details p,
+.side p,
+.dropdown input,
+.card .card-details,
+.card .card-details * {
+  color: var(--upov-dark) !important;
+  font-weight: 600 !important;    /* medium-bold for values */
+  letter-spacing: 0.15px;
+}
+
+/* Secondary / muted notes (e.g. explanatory text) */
+.note,
+.small,
+.tab .info,
+.details-box .note {
+  color: var(--upov-muted) !important;
+  font-weight: 400 !important;
+}
+
+/* Links & tag pills (green) */
+a,
+.link,
+.tag {
+  color: var(--upov-link) !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+}
+
+/* make icons color consistent with titles where appropriate */
+.card-details i,
+.details i,
+.tabs .tab i {
+  color: var(--upov-dark) !important;
+}
+
+/* ensure select / input text uses same weight/colour */
+select,
+input[type="text"],
+textarea {
+  font-family: "Roboto", Arial, sans-serif !important;
+  color: var(--upov-dark) !important;
+  font-weight: 600 !important;
+}
+
+/* small responsive safety — don't modify layout; only typography */
+@media (max-width: 600px) {
+  .card .left h3,
+  .big-value {
+    font-weight: 700 !important;
+  }
+}
+
+//
+// UPOV Brand Theme - Matching Design System */
+
+:host {
+  display: block;
+}
+
+.genie-container {
+  min-height: 100vh;
+  background: #e8f3ed;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* UPOV Header */
+.upov-header {
+  background: #2d5b52;
+
+  .upov-header-main {
+    padding: 0;
+  }
+
+  .container-fluid {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .upov-nav-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+
+  .upov-logo {
+    a {
+      color: white;
+      font-size: 1.75rem;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  .upov-nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    .nav-dropdown {
+      position: relative;
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color 0.3s;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem 0;
+      font-family: inherit;
+
+      &:hover {
+        color: #d4e834;
+      }
+
+      &.dropdown-trigger {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+
+        .dropdown-icon {
+          font-size: 1.25rem;
+          width: 1.25rem;
+          height: 1.25rem;
+          transition: transform 0.3s;
+        }
+      }
+    }
+
+    .search-icon-btn {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      padding: 0.5rem;
+      display: flex;
+      align-items: center;
+
+      mat-icon {
+        font-size: 1.5rem;
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+
+      &:hover {
+        color: #d4e834;
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .upov-nav {
+      gap: 1rem;
+
+      .nav-link {
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .upov-nav {
+      .nav-link {
+        display: none;
+      }
+    }
+  }
+}
+
+/* Breadcrumb */
+.upov-breadcrumb {
+  background: #d4e834;
+  padding: 0.75rem 0;
+
+  .container-fluid {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .breadcrumb {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+  }
+
+  .breadcrumb-item {
+    font-size: 0.9rem;
+
+    &:not(:last-child)::after {
+      content: '/';
+      padding: 0 0.5rem;
+      color: #2d5b52;
+    }
+
+    a {
+      color: #2d5b52;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &.active {
+      color: #1a3b35;
+      font-weight: 500;
+    }
+  }
+}
+
+.box{
+  width: 100%;
+  background-color: #d4e834;
+
+
+}
+
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fafafa;
+}
+
+.container {
+    width: 90%;
+    margin: 40px auto;
+}
+
+.back-link {
+    font-size: 16px;
+    text-decoration: none;
+    color: #2b7de9;
+}
+
+.box {
+    display: flex;
+    justify-content: space-evenly;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    width: 95%;
+}
+
+.left {
+    width: 90%;
+
+
+
+}
+
+.label {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 3px;
+}
+
+.code, .name {
+    margin-top: 0;
+}
+
+.row {
+    display: flex;
+    gap: 85px;
+    margin-top: 20px;
+}
+
+.value {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.more {
+    display: inline-block;
+    margin-top: 20px;
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.right img {
+    width: 260px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+
+.flex{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: start;
+    flex-direction: column;
+
+}
+
+.flex1{
+  display: flex;
+  gap: 80px;
+  // flex-direction: column;
+}
+.details{
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+.main2{
+  height: 400px;
+}
+  // height: 200px;
+
+body{
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7f8;
+}
+
+//
+
+
+
+
+
+
+
