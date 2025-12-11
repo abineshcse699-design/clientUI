@@ -45,5 +45,8 @@ import { RouterOutlet } from '@angular/router';
   styleUrls: ['./thirdpage.scss'],
 })
 export class Thirdpage {
+toggleMoreDetails() {
+throw new Error('Method not implemented.');
+}
 
 }

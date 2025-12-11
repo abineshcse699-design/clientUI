@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
@@ -42,5 +42,5 @@ import {MatBadgeModule} from '@angular/material/badge';
   styleUrl: './second.scss',
 })
 export class Second {
-
+  @Output() close = new EventEmitter<void>();
 }

@@ -10,11 +10,11 @@ import { Ngone } from './ngone/ngone';
 
 
 export const routes: Routes = [
-  {
-    path:'',
-    component:SpecieDetails,
-    pathMatch:'full'
-  },
+  // {
+  //   path:'',
+  //   component:SpecieDetails,
+  //   pathMatch:'full'
+  // },
 
   {
     path:'specie',

@@ -10,10 +10,12 @@ import { Ext } from "./ext/ext";
 import { Second } from "./second/second";
 import { Ngone } from "./ngone/ngone";
 import {  Ngtwo } from "./ngtwo/ngtwo";
+import { Prac } from "./prac/prac";
+import { Prac1 } from "./prac1/prac1";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Genie],
+  imports: [RouterOutlet, Genie, FourPage, Second, Thirdpage, Last, SpecieDetails, Ngtwo, Ngone, Prac, Prac1],
   templateUrl: './app.html',
   styleUrls: ['./app.scss']
 

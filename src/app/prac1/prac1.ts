@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+// import {MatBadgeModule} from '@angular/material/badge';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
@@ -19,12 +20,10 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { Second } from '../second/second';
 
-
 @Component({
-  selector: 'app-specie-details',
-  standalone: true,
-  imports: [
-    CommonModule,
+  selector: 'app-prac1',
+  imports: [MatBadgeModule,
+     CommonModule,
     HttpClientModule,
     ReactiveFormsModule,
     MatFormFieldModule,
@@ -43,84 +42,10 @@ import { Second } from '../second/second';
     MatDialogModule,
     Second
   ],
-  templateUrl: './specie-details.html',
-  styleUrls: ['./specie-details.scss'],
+  templateUrl: './prac1.html',
+  styleUrl: './prac1.scss',
 })
-export class SpecieDetails {
-
-
-
-
-
-  selectedValue = '';
-isOpen = false;
-
-authorities = [
-  "Austria (AT)",
-  "Belgium (BE)",
-  "Bulgaria (BG)",
-  "Chile (CL)",
-  "China (CN)",
-  "Costa Rica (CR)"
-];
-
-toggleDropdown() {
-  this.isOpen = !this.isOpen;
-}
-
-selectOption(option: string) {
-  this.selectedValue = option;
-  this.isOpen = false;
-}
-
-isCardVisible(name: string, code: string): boolean {
-  if (!this.selectedValue) return true;
-  return this.selectedValue === `${name} (${code})`;
-}
-
-
-
-  showDetailedView = false;
-
-  toggleMoreDetails() {
-    this.showDetailedView = !this.showDetailedView;
-    console.log('Toggle clicked. showDetailedView is now:', this.showDetailedView);
-  }
-
-
-
-// isOpen = false;
-// selectedValue = '';
-
-// authorities = [
-//   "African Intellectual Property Organization (OAPI)",
-//   "Argentina (AR)",
-//   "Australia (AU)",
-//   "Austria (AT)",
-//   "china (CA)",
-//   "Belgium (BE)",
-//   "Bolivia (BO)"
-// ];
-
-// toggleDropdown() {
-//   this.isOpen = !this.isOpen;
-// }
-
-// selectOption(option: string) {
-//   this.selectedValue = option;
-//   this.isOpen = false;
-
-// }
-
-// selectOption(option: string) {
-//   this.selectedValue = option;
-//   this.isOpen = false;
-
-//
-// }
-
-
-
+export class Prac1 {
 
 // isOpen = false;
 // selectedValue = '';
@@ -206,6 +131,32 @@ isCardVisible(name: string, code: string): boolean {
 //   this.filteredCards = this.cards.filter(c => c.code === code);
 // }
 
+
+selectedValue = '';
+isOpen = false;
+
+authorities = [
+  "Austria (AT)",
+  "Belgium (BE)",
+  "Bulgaria (BG)",
+  "Chile (CL)",
+  "China (CN)",
+  "Costa Rica (CR)"
+];
+
+toggleDropdown() {
+  this.isOpen = !this.isOpen;
+}
+
+selectOption(option: string) {
+  this.selectedValue = option;
+  this.isOpen = false;
+}
+
+isCardVisible(name: string, code: string): boolean {
+  if (!this.selectedValue) return true;
+  return this.selectedValue === `${name} (${code})`;
+}
 
 
 }

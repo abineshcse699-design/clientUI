@@ -1,0 +1,237 @@
+<!-- <div class="dropdown-container">
+
+  <div class="input-box">
+    <input
+      type="text"
+      placeholder="Authority name or ISO code"
+      [value]="selectedValue"
+      readonly
+    />
+
+    <span class="arrow" [class.open]="isOpen" (click)="toggleDropdown()">▾</span>
+  </div>
+
+  <div class="dropdown-box" *ngIf="isOpen">
+    <div
+      class="dropdown-item"
+      *ngFor="let option of authorities"
+      (click)="selectOption(option)"
+    >
+      {{ option }}
+    </div>
+  </div>
+
+  <div class="main3" *ngFor="let card of filteredCards">
+
+  <div class="card">
+    <div class="left">
+      <h3>{{ card.name }} <span>({{ card.code }})</span></h3>
+      <span class="tag">All genera and species</span>
+
+      <div class="side">
+        <div class="card-details">
+          <p><i class="fa-solid fa-user"></i> {{ card.contact }}</p>
+          <p><i class="fa-solid fa-envelope"></i> {{ card.email }}</p>
+        </div>
+
+        <div class="card-details">
+          <p><i class="fa-solid fa-phone"></i> {{ card.phone }}</p>
+          <p><i class="fa-solid fa-building"></i> {{ card.office }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flag">
+      <img [src]="card.flag" alt="">
+    </div>
+  </div>
+
+</div>
+
+
+</div> -->
+
+
+<!-- 🔻 DROPDOWN UI -->
+<div class="dropdown-container">
+  <div class="input-box">
+    <input
+      type="text"
+      placeholder="Authority name or ISO code"
+      [value]="selectedValue"
+      readonly
+    />
+    <span class="arrow" [class.open]="isOpen" (click)="toggleDropdown()">▾</span>
+  </div>
+
+  <div class="dropdown-box" *ngIf="isOpen">
+    <div
+      class="dropdown-item"
+      *ngFor="let option of authorities"
+      (click)="selectOption(option)"
+    >
+      {{ option }}
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================= -->
+<!-- 🔻 ALL CARDS BELOW, FILTERED USING isCardVisible() -->
+<!-- ============================================================= -->
+
+<div class="main3">
+
+  <!-- AUSTRIA -->
+  <div class="card" *ngIf="isCardVisible('Austria','AT')">
+    <div class="left">
+      <h3>Austria<span> (AT)</span></h3>
+      <span class="tag">All genera and species</span>
+
+      <div class="side">
+        <div class="card-details">
+          <p><i class="fa-solid fa-user"></i> James Donovan</p>
+          <p><i class="fa-solid fa-envelope"></i> j.donovan@australia.pvp.com</p>
+        </div>
+
+        <div class="card-details">
+          <p><i class="fa-solid fa-phone"></i> +54 11 4349 1354</p>
+          <p><i class="fa-solid fa-building"></i> Plant Breeder's Rights</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flag">
+      <img src="https://flagcdn.com/w80/au.png" alt="Australia Flag">
+    </div>
+  </div>
+
+
+  <!-- BELGIUM -->
+  <div class="card" *ngIf="isCardVisible('Belgium','BE')">
+    <div class="left">
+      <h3>Belgium <span> (BE)</span></h3>
+      <span class="tag">All genera and species</span>
+
+      <div class="side">
+        <div class="card-details">
+          <p><i class="fa-solid fa-user"></i> Mariano Mangieri</p>
+          <p><i class="fa-solid fa-envelope"></i> mariano.mangieri@australia.pvp.com</p>
+        </div>
+
+        <div class="card-details">
+          <p><i class="fa-solid fa-phone"></i> +54 11 4349 1354</p>
+          <p><i class="fa-solid fa-building"></i> Plant Variety Protection Office</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flag">
+      <img src="https://flagcdn.com/w80/au.png" alt="">
+    </div>
+  </div>
+</div>
+
+<div class="main3">
+
+  <!-- BULGARIA -->
+  <div class="card" *ngIf="isCardVisible('Bulgaria','BG')">
+    <div class="left">
+      <h3>Bulgaria<span> (BG)</span></h3>
+      <span class="tag">All genera and species</span>
+
+      <div class="side">
+        <div class="card-details">
+          <p><i class="fa-solid fa-user"></i> -</p>
+          <p><i class="fa-solid fa-envelope"></i> bjo@bg.net</p>
+        </div>
+
+        <div class="card-details">
+          <p><i class="fa-solid fa-phone"></i> +54 11 4349 1354</p>
+          <p><i class="fa-solid fa-building"></i> Plant Breeder's Rights</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flag">
+      <img src="https://flagcdn.com/w80/fr.png" alt="">
+    </div>
+  </div>
+
+
+  <!-- CHILE -->
+  <div class="card" *ngIf="isCardVisible('Chile','CL')">
+    <div class="left">
+      <h3>Chile<span> (CL)</span></h3>
+      <span class="tag">All genera and species</span>
+
+      <div class="side">
+        <div class="card-details">
+          <p><i class="fa-solid fa-user"></i> Mariano Mangieri</p>
+          <p><i class="fa-solid fa-envelope"></i> mariano.mangieri@australia.pvp.com</p>
+        </div>
+
+        <div class="card-details">
+          <p><i class="fa-solid fa-phone"></i> +54 11 4349 1354</p>
+          <p><i class="fa-solid fa-building"></i> Plant Variety Protection Office</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flag">
+      <img src="https://flagcdn.com/w80/cr.png" alt="">
+    </div>
+  </div>
+</div>
+
+<div class="main3">
+
+  <!-- CHINA -->
+  <div class="card" *ngIf="isCardVisible('China','CN')">
+    <div class="left">
+      <h3>China <span> (CN)</span></h3>
+      <span class="tag">All genera and species</span>
+
+      <div class="side">
+        <div class="card-details">
+          <p><i class="fa-solid fa-user"></i> James Donovan</p>
+          <p><i class="fa-solid fa-envelope"></i> j.donovan@australia.pvp.com</p>
+        </div>
+
+        <div class="card-details">
+          <p><i class="fa-solid fa-phone"></i> +54 11 4349 1354</p>
+          <p><i class="fa-solid fa-building"></i> Plant Breeder's Rights</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flag">
+      <img src="https://flagcdn.com/w80/au.png" alt="">
+    </div>
+  </div>
+
+
+  <!-- COSTA RICA -->
+  <div class="card" *ngIf="isCardVisible('Costa Rica','CR')">
+    <div class="left">
+      <h3>Costa Rica<span> (CR)</span></h3>
+      <span class="tag">All genera and species</span>
+
+      <div class="side">
+        <div class="card-details">
+          <p><i class="fa-solid fa-user"></i> James Donovan</p>
+          <p><i class="fa-solid fa-envelope"></i> j.donovan@australia.pvp.com</p>
+        </div>
+
+        <div class="card-details">
+          <p><i class="fa-solid fa-phone"></i> +54 11 4349 1354</p>
+          <p><i class="fa-solid fa-building"></i> Plant Breeder's Rights</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flag">
+      <img src="https://flagcdn.com/w80/au.png" alt="">
+    </div>
+  </div>
+
+</div>

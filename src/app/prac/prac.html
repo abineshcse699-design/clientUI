@@ -1,0 +1,91 @@
+<div *ngFor="let item of items" class="container">
+
+  <a href="/second" class="back-link" style="color: #0C3C35;">← Back to Genie Database</a>
+
+  
+  <div class="dropdown-container">
+
+  <div class="input-box">
+    <input
+      type="text"
+      placeholder="Authority name or ISO code"
+      [value]="selectedValue"
+      readonly
+    />
+
+    <!-- ARROW (Only this opens dropdown) -->
+    <span class="arrow" [class.open]="isOpen" (click)="toggleDropdown()">▾</span>
+  </div>
+
+  <!-- DROPDOWN BOX -->
+  <div class="dropdown-box" *ngIf="isOpen">
+    <div
+      class="dropdown-item"
+      *ngFor="let option of authorities"
+      (click)="selectOption(option)"
+    >
+      {{ option }}
+    </div>
+  </div>
+
+</div>
+
+
+
+  <!-- BOTTOM SECTION (unchanged) -->
+  <!-- <div class="tabi">
+
+    <div class="tabs">
+      <div class="tab active">
+        <span class="tab-icon">
+          <div class="icon-container">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+              <path d="M12 2L3 6V12C3 17.5 7.5 22 12 22C16.5 22 21 17.5 21 12V6L12 2Z"
+                stroke="#1f4e45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M8 12.5L11 15.5L16 9.5"
+                stroke="#1f4e45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+        </span>
+        Protection
+      </div>
+
+      <div class="tab">
+        <span class="tab-icon"><i class="bi bi-book icon-size-example"></i></span>
+        DUS Guidance and Cooperation
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="content">
+      <h2>Member of UPOV which offer protection <span class="count">(148)</span></h2>
+
+      <label class="label">Select the authority</label>
+
+      <div class="drop">
+        <div class="dropdown">
+          <input type="text" placeholder="Type the authority name or ISO code">
+          <span class="arrow">⌄</span>
+        </div>
+
+        <p class="note">
+          Members of UPOV which <strong>DO NOT</strong> offer protection:
+          <strong>China, Egypt and South Africa.</strong>
+        </p>
+
+      </div>
+
+    </div>
+
+  </div> -->
+
+</div>
+
+
+
+//
+
+
+
+<!-- </div> -->
