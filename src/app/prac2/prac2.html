@@ -143,6 +143,8 @@
         </div>
 
       </div>
+
+
        <div class="tabi">
 
         <!-- <div class="tabs">
@@ -184,7 +186,43 @@
 
 
         <!-- TABS -->
-        <div class="tabs">
+
+
+
+<div class="tabs-container">
+
+  <div
+    class="tab"]
+    (click)="togglebut()"
+    (click)="toggleDUS()"
+    [class.active]="activeTab === 'protection'"
+    (click)="setTab('protection')">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                  <path d="M12 2L3 6V12C3 17.5 7.5 22 12 22C16.5 22 21 17.5 21 12V6L12 2Z" stroke="#1f4e45"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+
+                  <path d="M8 12.5L11 15.5L16 9.5" stroke="#1f4e45" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg> Protection <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 48 48" fill="#1f4e45">
+                <path
+                  d="M24 4q8.25 0 14.125 5.875Q44 15.75 44 24q0 8.25-5.875 14.125Q32.25 44 24 44q-8.25 0-14.125-5.875Q4 32.25 4 24q0-8.25 5.875-14.125Q15.75 4 24 4Zm0 36q6.6 0 11.3-4.7Q40 30.6 40 24q0-6.6-4.7-11.3Q30.6 8 24 8q-6.6 0-11.3 4.7Q8 18.4 8 24q0 6.6 4.7 11.3Q18.4 40 24 40Zm-2-6h4V22h-4v12Zm2-16q.85 0 1.425-.575Q26 16.85 26 16q0-.85-.575-1.425Q24.85 14 24 14q-.85 0-1.425.575Q22 15.15 22 16q0 .85.575 1.425Q23.15 18 24 18Z" />
+              </svg>
+  </div>
+
+  <div
+    class="tab"
+    (click)="togglebut()"
+    (click)="toggleDUS()"
+    [class.active]="activeTab === 'dus'"
+    (click)="setTab('dus')">
+    DUS Guidance and Cooperation
+
+  </div>
+
+</div>
+
+        <!-- <div class="tabs">
 
           <div class="tab active"> <span class="tab-icon">
 
@@ -218,47 +256,32 @@
 
               <i class="bi bi-book icon-size-example"></i>
             </span> DUS Guidance and Cooperation</div>
-        </div>
+        </div> -->
 
 
         <hr class="divider">
 
         <div class="content">
-          <h2>Member of UPOV which offer protection <span class="count">(148)</span></h2>
+
+
+ <div *ngIf="activeTab === 'dus'">
+    <!-- DUS content -->
+     <div class="dus">
+      <div class="auth"><p style="color: #0C3C35;">UPOV Test Guidlines     TG/355/1</p>
+      <p>Drafting authority None</p></div>
+
+<h2 *ngIf="showDUSView">Authorities with practical experience </h2>
+
+     </div>
+  </div>
+
+
+          <h2 *ngIf="!showDUSView">Member of UPOV which offer protection <span class="count">(148)</span></h2>
 
           <label class="label">Select the authority</label>
 
 
-  <!-- <div class="dropdown-container">
 
-  <div class="input-box">
-    <input
-      type="text"
-      placeholder="Authority name or ISO code"
-      [value]="selectedValue"
-      readonly
-    />
-
-
-    <span class="arrow" [class.open]="isOpen" (click)="toggleDropdown()">▾</span>
-  </div>
-
-
-  <div class="dropdown-box" *ngIf="isOpen">
-    <div
-      class="dropdown-item"
-      *ngFor="let option of authorities"
-      (click)="selectOption(option)"
-    >
-      {{ option }}
-    </div>
-  </div>
-
-</div> -->
-
-
-
-<!-- 🔻 DROPDOWN UI -->
 
 <div class="tgbut">
   <div class="dropdown-container">
@@ -287,11 +310,16 @@
 </div>
 
 
-  <div class="tgbut1">
-   <mat-slide-toggle class="shape-circle">Higher botanical rank</mat-slide-toggle>
- <div>
+<div *ngIf="showBUTiew&&!showDetailedView">
+  <mat-slide-toggle
+  class="shape-circle"
+  (change)="onHigherRankToggle($event)">
+  Higher botanical rank
+</mat-slide-toggle>
 
-   <p >   <span class="material-symbols-outlined"> download</span> download as .xls</p>
+</div>
+   <p *ngIf="showBUTiew">   <span class="material-symbols-outlined"> download</span> download as .xls</p>
+
 
  </div>
 
@@ -302,14 +330,7 @@
 
 </div>
 
-
-        </div>
-
-
-      </div>
-
-
-      <div class="main3">
+ <div class="main3">
 
   <!-- AUSTRIA -->
   <div class="card" *ngIf="isCardVisible('Austria','AT')">
@@ -337,9 +358,9 @@
 
 
   <!-- BELGIUM -->
-  <div class="card" *ngIf="isCardVisible('Belgium','BE')">
+  <div class="card" *ngIf="isCardVisible('Austria','AT')">
     <div class="left">
-      <h3>Belgium <span> (BE)</span></h3>
+      <h3>Austria<span> (AT)</span></h3>
       <span class="tag">All genera and species</span>
 
       <div class="side">
@@ -360,6 +381,7 @@
     </div>
   </div>
 </div>
+
 
 
 
@@ -484,7 +506,7 @@
   <div class="main3">
 
     <!-- Single Card -->
-    <div class="card" *ngIf="isCardVisible('France','FR')">
+    <div class="card" *ngIf="isCardVisible('France','fr')">
       <div class="left">
         <h3>France<span> (FR)</span></h3>
         <span class="tag">All genera and species</span>
@@ -541,7 +563,7 @@
   <div class="main3">
 
     <!-- Single Card -->
-    <div class="card" *ngIf="isCardVisible('France','FR')">
+    <div class="card" *ngIf="isCardVisible('France','fr')">
       <div class="left">
         <h3>France<span> (FR)</span></h3>
         <span class="tag">All genera and species</span>
@@ -735,7 +757,7 @@
     <!-- COPY BELOW TO ADD MORE CARDS -->
     <div class="card"  *ngIf="isCardVisible('Belgium','BE')">
       <div class="left">
-        <h3>Belgium <span> (BE)</span></h3>
+        <h3>France <span> (FR)</span></h3>
         <span class="tag">All genera and species</span>
 
 
@@ -843,7 +865,7 @@
     </div>
 
     <!-- COPY BELOW TO ADD MORE CARDS -->
-    <div class="card" *ngIf="isCardVisible('CostaRica','CR')">
+    <div class="card" *ngIf="isCardVisible('France','FR')">
       <div class="left">
         <h3>Costa Rica <span> (CR)</span></h3>
         <span class="tag">All genera and species</span>
@@ -926,6 +948,23 @@
   </div>
 
 </div>
+
+
+
+
+        </div>
+
+
+      </div>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1148,7 +1187,7 @@
 
 
     </div>
-      </div>
+
 
   <!-- </div> -->
 

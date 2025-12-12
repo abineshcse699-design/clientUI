@@ -18,12 +18,13 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatBadgeModule} from '@angular/material/badge';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { Second } from '../second/second';
-
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-specie-details',
   standalone: true,
   imports: [
+    MatSlideToggleModule,
     CommonModule,
     HttpClientModule,
     ReactiveFormsModule,

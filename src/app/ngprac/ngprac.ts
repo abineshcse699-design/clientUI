@@ -1,17 +1,5 @@
 // import { Component } from '@angular/core';
 
-// @Component({
-//   selector: 'app-ngtwo',
-//   imports: [],
-//
-// })
-// export class Ngtwo {
-
-// }
-
-
-// import { Component } from '@angular/core';
-
 import {ChangeDetectionStrategy, Component, signal} from '@angular/core';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { CommonModule } from '@angular/common';
@@ -37,11 +25,10 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { A11yModule } from "@angular/cdk/a11y";
 
 
-
 @Component({
-  selector: 'app-ngtwo',
+  selector: 'app-ngprac',
   imports: [
-    MatExpansionModule,
+     MatExpansionModule,
      MatSlideToggleModule,
     CommonModule,
     HttpClientModule,
@@ -63,24 +50,20 @@ import { A11yModule } from "@angular/cdk/a11y";
     Second,
     A11yModule
   ],
-  templateUrl: './ngtwo.html',
-  styleUrl: './ngtwo.scss',
-  // templateUrl: './two.html',
-  // styleUrl: './two.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush
+  templateUrl: './ngprac.html',
+  styleUrl: './ngprac.scss',
 })
-export class Ngtwo {
-  readonly panelOpenState = signal(false);
+export class Ngprac {
 
 
    products=[
 
 
 
-{sku:1,id:'ANANA',name:'Ananas Mill',price:'Pineapple',details:'Bromeliaceae',image:'./q.jpg'},
+{sku:1,id:'ANANA',name:'Ananas Mill',price:'Pineapple',details:'Bromeliaceae',image:'./emp1.png'},
 {sku:1,id:'BRASS_OLE',name:'Brassica oleracea L.',price:'',details:'Brassicaceae',image:'./a1.png'},
 {sku:1,id:'BRASS_CAR',name:'Brassica caterinata A..Braun',price:'Abyssinnian cabbage;',details:'Brassicaceae',image:'./h.png'},
-{sku:1,id:'AGAPA',name:'Agapanthus L `Her ',price:'African Lily',details:'Agapanthaceae',image:'./a1.png'},
+{sku:1,id:'AGAPA',name:'Agapanthus L `Her ',price:'African Lily',details:'Agapanthaceae',image:'./emp.png'},
 {sku:1,id:'BRASS_CAR',name:'Brassica caterinata A..Braun',price:'Abyssinnian cabbage;chou E...',details:'ed',image:'./h.png'},
      {sku:1,id:'CAMPA_LTL',name:'iphone',price:'n2',details:'Campanulaceae',image:'./k.png'},
 
@@ -95,7 +78,7 @@ export class Ngtwo {
 {sku:1,id:'BRASS_CAR',name:'Brassica oleracea L.',price:'Abyssin cabbage;chou E...',details:'Brassicaceae',image:'./h.png'},
 {sku:1,id:'CAMPA_LTL',name:'Campanula latiloba A.DC',price:'',details:'Campanulaseae',image:'./k.png'},
 {sku:1,id:'CALCN_FLO',name:'Calycanthus florida L. ',price:'Carolina-allspice;pineapple-...',details:'Iradaceae',image:'./r.jpg'},
-{sku:1,id:'AGAPA',name:'Agapanthus L `Her',price:'african Lily',details:'Agapanthaceae',image:'./a1.png'},
+{sku:1,id:'AGAPA',name:'Agapanthus L `Her',price:'african Lily',details:'Agapanthaceae',image:'./emp2.png'},
 
 {sku:1,id:'ANANA',name:'Ananas Mill',price:'Pineapple',details:'Bromeliaceae',image:'./j.png'},
 // {sku:1,name:'',price:99.98,details:'',image:'./main.jpg'},
@@ -111,7 +94,8 @@ export class Ngtwo {
 
 
 
-     selectedValue = '';
+
+  selectedValue = '';
   isOpen = false;
 
   authorities = [
@@ -177,21 +161,10 @@ export class Ngtwo {
   //----------------------------------
 // For Protection section
 
-showDetailedView = false;
-
-toggleMoreDetails() {
-  this.showDetailedView = !this.showDetailedView;
-  console.log("Protection toggled:", this.showDetailedView);
-}
 
 
 // For DUS section
-showDUSView = false;
 
-toggleDUS() {
-  this.showDUSView = !this.showDUSView;
-  console.log("DUS toggled:", this.showDUSView);
-}
 
 showBUTiew = false;
 
@@ -212,9 +185,6 @@ activeTab: string = 'protection';
 setTab(tab: string) {
   this.activeTab = tab;
 }
-
-
-
 
 
 

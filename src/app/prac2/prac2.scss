@@ -1241,3 +1241,51 @@ body{
 .dropdown-item:hover {
   background: #e6f2ef;
 }
+
+
+// btn css
+
+.tabs-container {
+  display: flex;
+  gap: 30px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+  margin-top: 20px;
+}
+
+.tab {
+  font-size: 16px;
+  font-weight: 600;
+  color: #6d8a82;
+  padding: 10px 0;
+  cursor: pointer;
+  position: relative;
+}
+
+.tab.active {
+  color: #0f5132;
+}
+
+.tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #4e8f79;
+  border-radius: 2px;
+}
+
+.tab-content {
+  margin-top: 20px;
+}
+.auth{
+  display: flex;
+  gap: 20px;
+}
+.dus{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

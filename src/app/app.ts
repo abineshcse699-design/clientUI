@@ -12,10 +12,12 @@ import { Ngone } from "./ngone/ngone";
 import {  Ngtwo } from "./ngtwo/ngtwo";
 import { Prac } from "./prac/prac";
 import { Prac1 } from "./prac1/prac1";
+import { Prac2 } from "./prac2/prac2";
+import { Ngprac } from "./ngprac/ngprac";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Genie, FourPage, Second, Thirdpage, Last, SpecieDetails, Ngtwo, Ngone, Prac, Prac1],
+  imports: [Ngone, Ngtwo, Ngprac, RouterOutlet, Prac2],
   templateUrl: './app.html',
   styleUrls: ['./app.scss']
 
