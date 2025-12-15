@@ -1289,3 +1289,30 @@ body{
   flex-direction: column;
   gap: 20px;
 }
+
+//
+.input-box {
+  position: relative;
+  width: 100%;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 10px 36px 10px 12px; // right space for ❌
+  border-radius: 8px;
+  // border: 1px solid #ccc;
+}
+
+.clear-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 20px;
+  color: black;
+}
+
+.clear-icon:hover {
+  color: #000;
+}

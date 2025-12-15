@@ -17,9 +17,10 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
-import { Second } from '../second/second';
+// import { Second } from '../second/second';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { A11yModule } from "@angular/cdk/a11y";
+import { Authority, AUTHORITIES } from './mock-authorities';
 
 @Component({
   selector: 'app-prac2',
@@ -42,13 +43,19 @@ import { A11yModule } from "@angular/cdk/a11y";
     MatExpansionModule,
     MatBadgeModule,
     MatDialogModule,
-    Second,
+
+
     A11yModule
 ],
   templateUrl: './prac2.html',
+
   styleUrl: './prac2.scss',
+
+
 })
+
 export class Prac2 {
+
 
   selectedValue = '';
   isOpen = false;
@@ -65,14 +72,41 @@ export class Prac2 {
 
 
 
+  // Search state for authorities
+  searchTerm: string = '';
+  // start with no visible results; show only after user types
+  filteredAuthorities: string[] = [];
+
   toggleDropdown() {
     this.isOpen = !this.isOpen;
+    this.filteredAuthorities = [];
   }
 
   selectOption(option: string) {
     this.selectedValue = option;
+    this.searchTerm = option;
     this.isOpen = false;
+    // hide the search results after selection
+    this.filteredAuthorities = [];
   }
+
+  onSearch(term: string) {
+    this.searchTerm = term;
+    const lower = term.toLowerCase();
+
+    if (!lower) {
+      // when input is cleared, also hide the list
+      this.filteredAuthorities = [];
+      return;
+    }
+
+    this.filteredAuthorities = this.authorities.filter(a =>
+      a.toLowerCase().includes(lower)
+    );
+  }
+
+
+
 
   //-------------------------------
   //  HIGHER BOTANICAL RANK TOGGLE
@@ -83,11 +117,11 @@ export class Prac2 {
   // EXACT values used inside your *ngIf="isCardVisible(name, code)"
   higherRankCountries = [
     { name: 'Bulgaria', code: 'Bg' },
-    {name:'Austria',code:'AT'},
+    {name:'Austria',code:'At'},
     { name: 'Chile', code: 'CL' },
-    { name: 'Costa', code: 'Rica' },
-    // {name:'Belgium',code:'BE'}
-    // { name: 'CostaRica', code: 'CR' },
+    { name: 'Costa', code: 'Cr' },
+    {name:'Belgium',code:'BE'},
+    { name: 'CostaRica', code: 'CR' },
     // { name: 'France', code: 'fr' }
   ];
 
@@ -141,6 +175,13 @@ togglebut() {
   console.log("DUS toggled:", this.showBUTiew);
 }
 
+clearSearch() {
+  this.searchTerm = '';
+  this.selectedValue = '';
+  this.filteredAuthorities = [];
+  this.isOpen = false;
+}
+
 
 
   //
@@ -151,5 +192,7 @@ activeTab: string = 'protection';
 setTab(tab: string) {
   this.activeTab = tab;
 }
+
+
 
 }

@@ -8,7 +8,8 @@ import { Genie } from './genie/genie';
 import { Ngtwo } from './ngtwo/ngtwo';
 import { Ngone } from './ngone/ngone';
 import { Prac2 } from './prac2/prac2';
-import { Ngprac } from './ngprac/ngprac';
+// import { Ngprac } from './ngprac/ngprac';
+
 
 
 export const routes: Routes = [
@@ -45,9 +46,6 @@ export const routes: Routes = [
   path:'prac2',
   component:Prac2
 },
-{
-  path:'ngprac',
-  component:Ngprac
-}
+
 
 ];

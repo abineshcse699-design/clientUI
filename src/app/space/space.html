@@ -1,0 +1,24 @@
+<div class="dropdown-container">
+
+  <!-- INPUT -->
+  <input
+    type="text"
+    placeholder="Authority name or ISO code"
+    [value]="searchText"
+    (input)="onSearchSpecies($event.target.value)"
+    (focus)="dropdownOpen = true"
+  />
+
+  <!-- DROPDOWN LIST -->
+  <div class="dropdown-box" *ngIf="dropdownOpen && filteredSpecies.length">
+
+    <div
+      class="dropdown-item"
+      *ngFor="let sp of filteredSpecies"
+      (click)="selectSpecies(sp)"
+    >
+      {{ sp.name }} ({{ sp.code }})
+    </div>
+
+  </div>
+</div>

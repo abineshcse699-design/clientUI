@@ -1,0 +1,23 @@
+.dropdown-container {
+  position: relative;
+  width: 350px;
+}
+
+.dropdown-box {
+  position: absolute;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ddd;
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.dropdown-item {
+  padding: 12px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background: #e6f4f1; /* light green like screenshot */
+}

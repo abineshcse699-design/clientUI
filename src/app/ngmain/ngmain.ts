@@ -1,3 +1,4 @@
+
 // import { Component } from '@angular/core';
 
 import {ChangeDetectionStrategy, Component, signal} from '@angular/core';
@@ -26,7 +27,7 @@ import { A11yModule } from "@angular/cdk/a11y";
 
 
 @Component({
-  selector: 'app-ngprac',
+  selector: 'app-ngmain',
   imports: [
      MatExpansionModule,
      MatSlideToggleModule,
@@ -47,12 +48,13 @@ import { A11yModule } from "@angular/cdk/a11y";
     MatExpansionModule,
     MatBadgeModule,
     MatDialogModule,
+    Second,
     A11yModule
   ],
-  templateUrl: './ngprac.html',
-  styleUrls: ['./ngprac.scss'],
+  templateUrl: './ngmain.html',
+  styleUrl: './ngmain.scss',
 })
-export class Ngprac {
+export class Ngmain {
 
 
    products=[
@@ -93,6 +95,53 @@ export class Ngprac {
 
 
 
+    searchCtrl = new FormControl('');
+
+// 🔹 UI-la kaamikka vendiya list
+displayProducts: any[] = [];
+
+// 🔹 ellaa data (merge)
+allProducts: any[] = [];
+
+ngOnInit() {
+  // merge products + products1
+  this.allProducts = [...this.products, ...this.products1];
+
+  // 🔥 DEFAULT: ellaa components show
+  this.displayProducts = [...this.allProducts];
+
+  this.searchCtrl.valueChanges
+    .pipe(
+      debounceTime(300),
+      distinctUntilChanged()
+    )
+    .subscribe((value: string | null) => {
+      this.applySearch(value ?? '');
+    });
+}
+
+applySearch(value: string) {
+  const search = value.trim().toLowerCase();
+
+  // 🔥 INPUT EMPTY → SHOW ALL
+  if (!search) {
+    this.displayProducts = [...this.allProducts];
+    return;
+  }
+
+  // 🔥 SEARCH → MATCHING ONLY
+  this.displayProducts = this.allProducts.filter(p =>
+    p.id.toLowerCase().includes(search) ||
+    p.name.toLowerCase().includes(search)
+  );
+}
+
+clearSearch() {
+  this.searchCtrl.setValue('');
+  this.displayProducts = [...this.allProducts];
+}
+
+
 
   selectedValue = '';
   isOpen = false;
@@ -118,52 +167,11 @@ togglebut() {
 
 
 
-
-
-  //
-
-
 activeTab: string = 'protection';
 
 setTab(tab: string) {
   this.activeTab = tab;
 }
-searchCtrl = new FormControl('');
-
-filteredProducts: any[] = [];
-
-ngOnInit() {
-  this.searchCtrl.valueChanges
-    .pipe(
-      debounceTime(300),
-      distinctUntilChanged()
-    )
-    .subscribe((value: string | null) => {
-      this.filterProducts(value ?? '');
-    });
-}
-
-filterProducts(value: string) {
-  if (!value.trim()) {
-    this.filteredProducts = [];
-    return;
-  }
-
-  const search = value.toLowerCase();
-
-  this.filteredProducts = this.products.filter(p =>
-    p.id.toLowerCase().includes(search) ||
-    p.name.toLowerCase().includes(search)
-  );
-}
-
-clearSearch() {
-  this.searchCtrl.setValue('');
-  this.filteredProducts = [];
-}
-
-
-
 
 
 }

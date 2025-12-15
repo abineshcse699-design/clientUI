@@ -14,10 +14,14 @@ import { Prac } from "./prac/prac";
 import { Prac1 } from "./prac1/prac1";
 import { Prac2 } from "./prac2/prac2";
 import { Ngprac } from "./ngprac/ngprac";
+import { Space } from "./space/space";
+import { Ngmain } from "./ngmain/ngmain";
+// import { Ngprac } from "./ngprac/ngprac";
+
 
 @Component({
   selector: 'app-root',
-  imports: [Ngone, Ngtwo, Ngprac, RouterOutlet, Prac2],
+  imports: [RouterOutlet, Ngmain],
   templateUrl: './app.html',
   styleUrls: ['./app.scss']
 
