@@ -1,73 +1,11 @@
-/* SEARCH */
-.search-field {
-  width: 420px;
-  margin-bottom: 24px;
+
+* {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
+               'Segoe UI', Roboto, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* MAIN LAYOUT */
-.main-layout {
-  display: grid;
-  grid-template-columns: 1fr 320px; /* left + right */
-  gap: 24px;
-  align-items: start;
-}
-
-/* PRODUCTS GRID */
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
-  gap: 20px;
-}
-
-/* PRODUCT CARD */
-.product-card {
-  display: flex;
-  justify-content: space-between;
-  padding: 16px;
-  border-radius: 12px;
-  background: #fff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-}
-
-.card-left h3 {
-  margin: 4px 0;
-  font-size: 16px;
-}
-
-.code {
-  color: #1f7a4f;
-  font-weight: 600;
-  margin-bottom: 6px;
-}
-
-.card-right img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-/* CONTACT CARD */
-.contact-card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 14px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-  position: sticky;
-  top: 20px;
-}
-
-.contact-card h3 {
-  margin-bottom: 12px;
-}
-
-.email {
-  color: #1f7a4f;
-  font-size: 14px;
-}
-
-
-//
 
 .main{
   display: flex;
@@ -76,6 +14,11 @@
   // justify-content: space-around;
   // align-items: center;
   // flex-direction: column;
+}
+.b{
+   font-size: 14px;
+  font-weight: 500;
+  color: #16433b;
 }
 .container{
   display: flex;
@@ -481,7 +424,7 @@ body {
   // border-color: #1a73e8;
   // height: 300px;
   // background-color: #1A7F38;
-  // background-color: #d4e834;
+  // background-color: #d4e834;y
   // background-color: white;
 
   //  box-shadow: 0 5px 15px rgba(0,0,0,0.12);
@@ -642,7 +585,10 @@ body {
     //
 
 
-    /* SEARCH */
+
+
+//
+/* SEARCH */
 .search-field {
   width: 420px;
   margin-bottom: 24px;
@@ -709,3 +655,4 @@ body {
   color: #1f7a4f;
   font-size: 14px;
 }
+

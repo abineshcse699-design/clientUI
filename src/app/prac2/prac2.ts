@@ -121,7 +121,7 @@ export class Prac2 {
     { name: 'Chile', code: 'CL' },
     { name: 'Costa', code: 'Cr' },
     {name:'Belgium',code:'BE'},
-    { name: 'CostaRica', code: 'CR' },
+    // { name: 'CostaRica', code: 'CR' },
     // { name: 'France', code: 'fr' }
   ];
 

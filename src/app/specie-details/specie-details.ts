@@ -1,212 +1,188 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatIconModule } from '@angular/material/icon';
-import { MatChipsModule } from '@angular/material/chips';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
-import { debounceTime, distinctUntilChanged, map, startWith } from 'rxjs';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {MatExpansionModule} from '@angular/material/expansion';
-import {MatBadgeModule} from '@angular/material/badge';
-import { MatDialogModule, MatDialog } from '@angular/material/dialog';
-import { Second } from '../second/second';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {
+  COUNTRY_CARDS_MOCK3,
+  SPECIE_MOCK_DATA,
+  SPECIE_MOCK_DATA1,
+  SPECIE_TABS_MOCK2
+} from './specie-mock';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
+
 
 @Component({
   selector: 'app-specie-details',
   standalone: true,
-  imports: [
-    MatSlideToggleModule,
-    CommonModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatCardModule,
-    MatProgressSpinnerModule,
-    MatIconModule,
-    MatChipsModule,
-    MatSnackBarModule,
-    MatButtonToggleModule,
-    MatMenuModule,
-    MatProgressBarModule,
-    MatExpansionModule,
-    MatBadgeModule,
-    MatDialogModule,
-    Second
-  ],
+  imports: [CommonModule, MatSlideToggleModule,MatCardModule],
   templateUrl: './specie-details.html',
-  styleUrls: ['./specie-details.scss'],
+  styleUrls: ['./specie-details.scss']
 })
-export class SpecieDetails {
+export class SpecieDetails implements OnInit {
 
 
 
 
 
-  selectedValue = '';
-isOpen = false;
+    //  STATIC DATA
 
-authorities = [
-  "Austria (AT)",
-  "Belgium (BE)",
-  "Bulgaria (BG)",
-  "Chile (CL)",
-  "China (CN)",
-  "Costa Rica (CR)"
-];
+  specie = SPECIE_MOCK_DATA;
+  specie1 = SPECIE_MOCK_DATA1;
+  tabs = SPECIE_TABS_MOCK2;
 
-toggleDropdown() {
-  this.isOpen = !this.isOpen;
-}
+  //  =======================
+    //  CARD DATA
 
-selectOption(option: string) {
-  this.selectedValue = option;
-  this.isOpen = false;
-}
+  allCards: any[] = [];
+  cards: any[] = [];
 
-isCardVisible(name: string, code: string): boolean {
-  if (!this.selectedValue) return true;
-  return this.selectedValue === `${name} (${code})`;
-}
-
-
-
+  /* =======================
+     UI STATE
+     ======================= */
   showDetailedView = false;
+  showDUSView = false;
+  showBUTiew = false;
 
-  toggleMoreDetails() {
-    this.showDetailedView = !this.showDetailedView;
-    console.log('Toggle clicked. showDetailedView is now:', this.showDetailedView);
+  activeTab = 'protection';
+
+  /* =======================
+     SEARCH STATE
+     ======================= */
+  authorities = [
+    'Austria (AT)',
+    'Belgium (BE)',
+    'Bulgaria (BG)',
+    'Chile (CL)',
+    'China (CN)',
+    'Costa Rica (CR)',
+    'France (FR)',
+    'Egypt (EG)'
+  ];
+
+  searchTerm = '';
+  selectedValue = '';
+  selectedCountryCode: string | null = null;
+  filteredAuthorities: string[] = [];
+  isOpen = false;
+
+  /* =======================
+     TOGGLE STATE
+     ======================= */
+  isHigherRank = false;
+
+  /* =======================
+     INIT
+     ======================= */
+  ngOnInit(): void {
+    this.allCards = COUNTRY_CARDS_MOCK3;
+    this.cards = [...this.allCards];
   }
 
+  /* =======================
+     TAB HANDLING
+     ======================= */
+  setTab(tabId: string): void {
+    this.activeTab = tabId;
+  }
 
+  /* =======================
+     UI TOGGLES
+     ======================= */
+  toggleMoreDetails(): void {
+    this.showDetailedView = !this.showDetailedView;
+  }
 
-// isOpen = false;
-// selectedValue = '';
+  toggleDUS(): void {
+    this.showDUSView = !this.showDUSView;
+  }
 
-// authorities = [
-//   "African Intellectual Property Organization (OAPI)",
-//   "Argentina (AR)",
-//   "Australia (AU)",
-//   "Austria (AT)",
-//   "china (CA)",
-//   "Belgium (BE)",
-//   "Bolivia (BO)"
-// ];
+  togglebut(): void {
+    this.showBUTiew = !this.showBUTiew;
+  }
 
-// toggleDropdown() {
-//   this.isOpen = !this.isOpen;
-// }
+  /* =======================
+     SEARCH LOGIC
+     ======================= */
+  onSearch(term: string): void {
+    this.searchTerm = term;
 
-// selectOption(option: string) {
-//   this.selectedValue = option;
-//   this.isOpen = false;
+    if (!term) {
+      this.filteredAuthorities = [];
+      return;
+    }
 
-// }
+    const lower = term.toLowerCase();
+    this.filteredAuthorities = this.authorities.filter(a =>
+      a.toLowerCase().includes(lower)
+    );
+  }
 
-// selectOption(option: string) {
-//   this.selectedValue = option;
-//   this.isOpen = false;
+  selectOption(option: string): void {
+    this.selectedValue = option;
+    this.searchTerm = option;
+    this.isOpen = false;
+    this.filteredAuthorities = [];
 
-//
-// }
+    // ✅ Extract ISO code from "Austria (AT)"
+    const match = option.match(/\((.*?)\)/);
+    this.selectedCountryCode = match ? match[1] : null;
 
+    this.applyFilters();
+  }
 
+  clearSearch(): void {
+    this.searchTerm = '';
+    this.selectedValue = '';
+    this.selectedCountryCode = null;
+    this.filteredAuthorities = [];
+    this.isOpen = false;
+    this.applyFilters();
+  }
 
+  toggleDropdown(): void {
+    this.isOpen = !this.isOpen;
+    this.filteredAuthorities = [];
+  }
 
-// isOpen = false;
-// selectedValue = '';
+  /* =======================
+     FILTER ENGINE
+     ======================= */
+  applyFilters(): void {
+    let filtered = [...this.allCards];
 
-// authorities = [
-//   "Austria (AT)",
-//   "Belgium (BE)",
-//   "Bulgaria (BG)",
-//   "Chile (CL)",
-//   "China (CN)",
-//   "Costa Rica (CR)"
-// ];
+    // 🔍 Filter by selected country
+    if (this.selectedCountryCode) {
+      filtered = filtered.filter(card =>
+        card.code === this.selectedCountryCode
+      );
+    }
 
-// cards = [
-//   {
-//     name: "Austria",
-//     code: "AT",
-//     contact: "James Donovan",
-//     email: "j.donovan@australia.pvp.com",
-//     phone: "+54 11 4349 1354",
-//     office: "Plant Breeder's Rights",
-//     flag: "https://flagcdn.com/w80/au.png"
-//   },
-//   {
-//     name: "Belgium",
-//     code: "BE",
-//     contact: "Mariano Mangieri",
-//     email: "mariano.mangieri@australia.pvp.com",
-//     phone: "+54 11 4349 1354",
-//     office: "Plant Variety Protection Office",
-//     flag: "https://flagcdn.com/w80/au.png"
-//   },
-//   {
-//     name: "Bulgaria",
-//     code: "BG",
-//     contact: "-",
-//     email: "bjo@bg.net",
-//     phone: "+54 11 4349 1354",
-//     office: "Plant Breeder's Rights",
-//     flag: "https://flagcdn.com/w80/fr.png"
-//   },
-//   {
-//     name: "Chile",
-//     code: "CL",
-//     contact: "Mariano Mangieri",
-//     email: "mariano.mangieri@australia.pvp.com",
-//     phone: "+54 11 4349 1354",
-//     office: "Plant Variety Protection Office",
-//     flag: "https://flagcdn.com/w80/cr.png"
-//   },
-//   {
-//     name: "China",
-//     code: "CN",
-//     contact: "James Donovan",
-//     email: "j.donovan@australia.pvp.com",
-//     phone: "+54 11 4349 1354",
-//     office: "Plant Breeder's Rights",
-//     flag: "https://flagcdn.com/w80/au.png"
-//   },
-//   {
-//     name: "Costa Rica",
-//     code: "CR",
-//     contact: "James Donovan",
-//     email: "j.donovan@australia.pvp.com",
-//     phone: "+54 11 4349 1354",
-//     office: "Plant Breeder's Rights",
-//     flag: "https://flagcdn.com/w80/au.png"
-//   }
-// ];
+    // 🟢 Higher botanical rank filter
+    if (this.isHigherRank) {
+      filtered = filtered.filter(card =>
+        ['AT', 'BE', 'FR'].includes(card.code)
+      );
+    }
 
-// filteredCards = this.cards;
+    this.cards = filtered;
+  }
 
-// toggleDropdown() {
-//   this.isOpen = !this.isOpen;
-// }
+  /* =======================
+     TOGGLE HANDLER
+     ======================= */
+  onHigherRankToggle(event: any): void {
+    this.isHigherRank = event.checked;
+    this.applyFilters();
+  }
 
-// selectOption(option: string) {
-//   this.selectedValue = option;
-//   this.isOpen = false;
+  /* =======================
+     HELPERS
+     ======================= */
+  isCardVisible(country: string, code: string): boolean {
+    return true;
+  }
 
-//   const code = option.match(/\((.*?)\)/)?.[1];
-
-//   this.filteredCards = this.cards.filter(c => c.code === code);
-// }
-
-
-
+  trackByIndex(index: number): number {
+    return index;
+  }
 }

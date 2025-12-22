@@ -24,6 +24,14 @@ import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { Second } from '../second/second';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { A11yModule } from "@angular/cdk/a11y";
+import {
+  COUNTRY_DATA,
+  TABS,
+  UPOV_INFO,
+  PRODUCTS,
+  CONTACT_INFO
+} from './ngmain-mock';
+import { C } from '@angular/cdk/keycodes';
 
 
 @Component({
@@ -56,6 +64,10 @@ import { A11yModule } from "@angular/cdk/a11y";
 })
 export class Ngmain {
 
+    country = COUNTRY_DATA;
+      tabs=TABS;
+      upov=UPOV_INFO;
+      contact=CONTACT_INFO;
 
    products=[
 

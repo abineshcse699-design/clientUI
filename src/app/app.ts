@@ -16,12 +16,15 @@ import { Prac2 } from "./prac2/prac2";
 import { Ngprac } from "./ngprac/ngprac";
 import { Space } from "./space/space";
 import { Ngmain } from "./ngmain/ngmain";
+import { BrassicaDetails } from "./brassica-details/brassica-details";
+// import { AustraliaDetail } from "./australia-detail/australia-detail";
+import { MatIconModule } from '@angular/material/icon';
 // import { Ngprac } from "./ngprac/ngprac";
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Ngmain],
+  imports: [Genie, Prac2, Ngmain, MatIconModule, BrassicaDetails, SpecieDetails],
   templateUrl: './app.html',
   styleUrls: ['./app.scss']
 
